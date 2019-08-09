@@ -2,7 +2,8 @@
 <configuration>
   <contextName>spring boot sharding-jdbc</contextName>
   <property name="logging_Root" value="logs"/>
-  <springProperty scope="context" name="logging_Root" source="loggingRoot"/>
+  <!--  23:02:36,308 |-ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:77 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]-->
+  <!--  <springProperty scope="context" name="logging_Root" source="loggingRoot"/>-->
 
   <appender name="DEFAULT-CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
@@ -111,7 +112,7 @@
 
   <root>
     <level value="INFO"/>
-<!--    <appender-ref ref="DEFAULT-CONSOLE"/>-->
+    <!--    <appender-ref ref="DEFAULT-CONSOLE"/>-->
     <appender-ref ref="STDOUT-APPENDER"/>
     <appender-ref ref="DEFAULT-APPENDER"/>
     <appender-ref ref="ERROR-APPENDER"/>
