@@ -20,7 +20,7 @@ public class MasterSlaveServiceTest {
   // ------   create   ------  //
 
   /**
-   * 非事务方法，走【master】
+   * 非事务方法，【插入】如【master】
    *
    */
   @Test
@@ -31,7 +31,8 @@ public class MasterSlaveServiceTest {
   }
 
   /**
-   * 非事务方法，插入走【master】，查询走【slave0】
+   * 非事务方法，【插入】走【master】，【查询】走【slave0】
+   *
    */
   @Test
   public void createAndRead() {
@@ -40,6 +41,10 @@ public class MasterSlaveServiceTest {
     log.info("--------方法的执行结果 {}", result);
   }
 
+  /**
+   * 非事务方法，【插入】走【master】，【更新】走【master】
+   *
+   */
   @Test
   public void createAndUpdate() {
 
@@ -47,6 +52,10 @@ public class MasterSlaveServiceTest {
     log.info("-------方法的执行结果 {}", result);
   }
 
+  /**
+   * 非事务方法，【插入】走【master】，【删除】走【master】
+   *
+   */
   @Test
   public void createAndDelete() {
 
