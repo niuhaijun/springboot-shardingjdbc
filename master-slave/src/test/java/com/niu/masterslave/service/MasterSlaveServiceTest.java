@@ -3,6 +3,7 @@ package com.niu.masterslave.service;
 import com.niu.masterslave.MasterSlaveApplication;
 import com.niu.masterslave.model.Order;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,32 +13,49 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = MasterSlaveApplication.class)
+@Slf4j
 public class MasterSlaveServiceTest {
 
   @Autowired
   private MaserSlaveService maserSlaveService;
 
+  /**
+   * 非事务方法，create走主库
+   */
+  @Test
+  public void create() {
+
+    int result = maserSlaveService.create();
+    log.info("-------create 方法的执行结果 {}", result == 10);
+  }
 
   @Test
-  public void testSave() {
+  public void read() {
 
-    maserSlaveService.save();
-    System.out.println("-------插入成功");
+    List<Order> records = maserSlaveService.read();
+    log.info("--------read 方法的执行结果 {}", records.size() == 10);
+  }
+
+  @Test
+  public void update() {
+
+    int result = maserSlaveService.update();
+    log.info("--------update 方法的执行结果 {}", result == 1);
   }
 
 
   @Test
-  public void testList() {
+  public void delete() {
 
-    List<Order> records = maserSlaveService.list();
-    System.out.println("--------count:" + records.size());
+    int result  = maserSlaveService.delete();
+    log.info("--------delete 方法的执行结果 {}", result == 1);
   }
 
 
   @Test
-  public void saveAndSelect() {
+  public void createAndRead() {
 
-    Integer count = maserSlaveService.saveAndSelect();
-    System.out.println("--------save select success:" + count);
+    Integer count = maserSlaveService.createAndRead();
+    log.info("--------create and read success:" + count);
   }
 }

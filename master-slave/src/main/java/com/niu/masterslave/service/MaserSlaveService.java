@@ -10,9 +10,13 @@ import java.util.List;
  */
 public interface MaserSlaveService {
 
-  void save();
+  int create();
 
-  List<Order> list();
+  List<Order> read();
 
-  Integer saveAndSelect();
+  int update();
+
+  int delete();
+
+  int createAndRead();
 }

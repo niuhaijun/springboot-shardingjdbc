@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author lou
@@ -23,10 +22,14 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   private OrderMapper orderMapper;
 
   /**
-   * 非事务方法，插入数据走主库
+   * 插入10条数据
+   *
+   * order_id 和 user_id的范围都是[1, 10]
    */
   @Override
-  public void save() {
+  public int create() {
+
+    int result = 0;
 
     Random random = new Random();
 
@@ -40,24 +43,41 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
       record.setOrderId(orderId);
       record.setUserId(number);
       record.setContent("test: " + number);
-      orderMapper.insert(record);
+      result += orderMapper.insert(record);
     }
+
+    return result;
   }
 
-  /**
-   * 非事务方法，查询走从库
-   */
   @Override
-  public List<Order> list() {
+  public List<Order> read() {
 
     return orderMapper.selectByExample(new OrderExample());
   }
 
-  /**
-   * 非事务方法，插入走主库，查询走从库
-   */
   @Override
-  public Integer saveAndSelect() {
+  public int update() {
+
+    Order record = new Order();
+    record.setOrderId(100L);
+
+    OrderExample example = new OrderExample();
+    example.createCriteria().andOrderIdGreaterThan(0L);
+
+    return orderMapper.updateByExampleSelective(record, example);
+  }
+
+  @Override
+  public int delete() {
+
+    return orderMapper.deleteByExample(new OrderExample());
+
+  }
+
+  @Override
+  public int createAndRead() {
+
+    int result = 0;
 
     Random random = new Random();
 
@@ -71,11 +91,12 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
       record.setOrderId(orderId);
       record.setUserId(number);
       record.setContent("test " + number);
-      orderMapper.insert(record);
+      result += orderMapper.insert(record);
     }
 
     List<Order> list = orderMapper.selectByExample(new OrderExample());
-    return list.size();
+    result += list.size();
+    return result;
   }
 
 
