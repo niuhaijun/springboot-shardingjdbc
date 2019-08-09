@@ -23,7 +23,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   private OrderMapper orderMapper;
 
   /**
-   * 以下方法是测试方法
+   * 非事务方法，插入数据走主库
    */
   @Override
   public void save() {
@@ -44,13 +44,18 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     }
   }
 
+  /**
+   * 非事务方法，查询走从库
+   */
   @Override
   public List<Order> list() {
 
     return orderMapper.selectByExample(new OrderExample());
   }
 
-  @Transactional
+  /**
+   * 非事务方法，插入走主库，查询走从库
+   */
   @Override
   public Integer saveAndSelect() {
 

@@ -18,11 +18,6 @@ public class MasterSlaveServiceTest {
   private MaserSlaveService maserSlaveService;
 
 
-  /**
-   * 插入100条数据
-   *
-   * 走主库
-   */
   @Test
   public void testSave() {
 
@@ -31,11 +26,6 @@ public class MasterSlaveServiceTest {
   }
 
 
-  /**
-   * 查询数据
-   *
-   * 走从库
-   */
   @Test
   public void testList() {
 
@@ -44,11 +34,6 @@ public class MasterSlaveServiceTest {
   }
 
 
-  /**
-   * 插入并更新
-   *
-   * 走主库
-   */
   @Test
   public void saveAndSelect() {
 
