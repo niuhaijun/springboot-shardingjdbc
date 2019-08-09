@@ -2,7 +2,7 @@ spring:
   profiles:
     active: ms
   application:
-    name: 读写分离
+    name: master-slave
 
 server:
   port: 8080
