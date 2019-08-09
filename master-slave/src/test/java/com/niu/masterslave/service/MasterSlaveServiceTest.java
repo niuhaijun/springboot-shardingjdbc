@@ -17,6 +17,12 @@ public class MasterSlaveServiceTest {
   @Autowired
   private MaserSlaveService maserSlaveService;
 
+
+  /**
+   * 插入100条数据
+   *
+   * 走主库
+   */
   @Test
   public void testSave() {
 
@@ -24,6 +30,12 @@ public class MasterSlaveServiceTest {
     System.out.println("-------插入成功");
   }
 
+
+  /**
+   * 查询数据
+   *
+   * 走从库
+   */
   @Test
   public void testList() {
 
@@ -31,6 +43,12 @@ public class MasterSlaveServiceTest {
     System.out.println("--------count:" + records.size());
   }
 
+
+  /**
+   * 插入并更新
+   *
+   * 走主库
+   */
   @Test
   public void saveAndSelect() {
 

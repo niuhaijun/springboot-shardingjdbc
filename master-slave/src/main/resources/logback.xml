@@ -111,7 +111,7 @@
 
   <root>
     <level value="INFO"/>
-    <appender-ref ref="DEFAULT-CONSOLE"/>
+<!--    <appender-ref ref="DEFAULT-CONSOLE"/>-->
     <appender-ref ref="STDOUT-APPENDER"/>
     <appender-ref ref="DEFAULT-APPENDER"/>
     <appender-ref ref="ERROR-APPENDER"/>
