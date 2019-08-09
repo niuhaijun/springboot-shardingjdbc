@@ -27,7 +27,7 @@ public class MasterSlaveServiceTest {
   public void create() {
 
     int result = maserSlaveService.create();
-    log.info("-------方法的执行结果 {}", result == 10);
+    log.info("-------方法的执行结果 {}", result);
   }
 
   /**
@@ -37,21 +37,21 @@ public class MasterSlaveServiceTest {
   public void createAndRead() {
 
     int result = maserSlaveService.createAndRead();
-    log.info("--------方法的执行结果 {}", result == 0);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   @Test
   public void createAndUpdate() {
 
     int result = maserSlaveService.createAndUpdate();
-    log.info("-------方法的执行结果 {}", result == 10);
+    log.info("-------方法的执行结果 {}", result);
   }
 
   @Test
   public void createAndDelete() {
 
     int result = maserSlaveService.createAndDelete();
-    log.info("-------方法的执行结果 {}", result == 10);
+    log.info("-------方法的执行结果 {}", result);
   }
 
   // ------   read   ------  //
@@ -63,7 +63,7 @@ public class MasterSlaveServiceTest {
   public void read() {
 
     int result = maserSlaveService.read();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -73,7 +73,7 @@ public class MasterSlaveServiceTest {
   public void readAndCreate() {
 
     int result = maserSlaveService.readAndCreate();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -83,7 +83,7 @@ public class MasterSlaveServiceTest {
   public void readAndUpdate() {
 
     int result = maserSlaveService.readAndUpdate();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -93,7 +93,7 @@ public class MasterSlaveServiceTest {
   public void readAndDelete() {
 
     int result = maserSlaveService.readAndDelete();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   // ------   update   ------  //
@@ -105,7 +105,7 @@ public class MasterSlaveServiceTest {
   public void update() {
 
     int result = maserSlaveService.update();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -115,7 +115,7 @@ public class MasterSlaveServiceTest {
   public void updateAndCreate() {
 
     int result = maserSlaveService.updateAndCreate();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -125,7 +125,7 @@ public class MasterSlaveServiceTest {
   public void updateAndRead() {
 
     int result = maserSlaveService.updateAndRead();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -135,7 +135,7 @@ public class MasterSlaveServiceTest {
   public void updateAndDelete() {
 
     int result = maserSlaveService.updateAndDelete();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   // ------   delete   ------  //
@@ -147,7 +147,7 @@ public class MasterSlaveServiceTest {
   public void delete() {
 
     int result = maserSlaveService.delete();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -157,7 +157,7 @@ public class MasterSlaveServiceTest {
   public void deleteAndCreate() {
 
     int result = maserSlaveService.deleteAndCreate();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -167,7 +167,7 @@ public class MasterSlaveServiceTest {
   public void deleteAndRead() {
 
     int result = maserSlaveService.deleteAndRead();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
   /**
@@ -177,7 +177,7 @@ public class MasterSlaveServiceTest {
   public void deleteAndUpdate() {
 
     int result = maserSlaveService.deleteAndUpdate();
-    log.info("--------方法的执行结果 {}", result == 10);
+    log.info("--------方法的执行结果 {}", result);
   }
 
 }
