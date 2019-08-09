@@ -6,6 +6,7 @@ import com.niu.masterslave.model.OrderExample;
 import com.niu.masterslave.service.MaserSlaveService;
 import com.niu.masterslave.utils.UUIDUtils;
 import java.util.Random;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
  * @Description 主从服务实现类
  **/
 @Service
+@Slf4j
 public class MaserSlaveServiceImpl implements MaserSlaveService {
 
   @Autowired
@@ -41,28 +43,41 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
       result += orderMapper.insert(record);
     }
 
+    log.info("create: {}", result);
     return result;
   }
 
   private int r() {
 
+    int result = 0;
+    result += orderMapper.countByExample(new OrderExample());
+
+    log.info("read: {}", result);
     return orderMapper.countByExample(new OrderExample());
   }
 
   private int u() {
+
+    int result = 0;
 
     Order record = new Order();
     record.setOrderId(100L);
 
     OrderExample example = new OrderExample();
     example.createCriteria().andOrderIdGreaterThan(0L);
+    result += orderMapper.updateByExampleSelective(record, example);
 
-    return orderMapper.updateByExampleSelective(record, example);
+    log.info("update: {}", result);
+    return result;
   }
 
   private int d() {
 
-    return orderMapper.deleteByExample(new OrderExample());
+    int result = 0;
+    result += orderMapper.deleteByExample(new OrderExample());
+
+    log.info("delete: {}", result);
+    return result;
   }
 
 
@@ -70,7 +85,11 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   @Override
   public int create() {
 
-    return c();
+    int result = 0;
+    result += c();
+
+    return result;
+
   }
 
   @Override
@@ -106,7 +125,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   @Override
   public int read() {
 
-    return r();
+    int result = 0;
+    result += r();
+    return result;
 
   }
 
@@ -115,7 +136,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
+
     result += c();
+
     return result;
   }
 
@@ -124,7 +147,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
+
     result += u();
+
     return result;
   }
 
@@ -133,7 +158,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
+
     result += d();
+
     return result;
   }
 
@@ -142,7 +169,10 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   @Override
   public int update() {
 
-    return u();
+    int result = 0;
+    result += u();
+
+    return result;
   }
 
   @Override
@@ -150,6 +180,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += u();
+
     result += c();
     return result;
   }
@@ -157,10 +188,10 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   @Override
   public int updateAndRead() {
 
-    int result = 0;
-    result += u();
-    result += r();
-    return result;
+    int u = u();
+
+    int r = r();
+    return u + r;
   }
 
   @Override
