@@ -20,7 +20,7 @@ public class MasterSlaveServiceTest {
   private MaserSlaveService maserSlaveService;
 
   /**
-   * 非事务方法，走主库
+   * 非事务方法，走【master】
    */
   @Test
   public void create() {
@@ -30,7 +30,7 @@ public class MasterSlaveServiceTest {
   }
 
   /**
-   * 非事务方法，走从库
+   * 非事务方法，走【slave0】
    */
   @Test
   public void read() {
@@ -40,7 +40,7 @@ public class MasterSlaveServiceTest {
   }
 
   /**
-   * 非事务方法，走主库
+   * 非事务方法，走【master】
    */
   @Test
   public void update() {
@@ -51,7 +51,7 @@ public class MasterSlaveServiceTest {
 
 
   /**
-   * 非事务方法，走主库
+   * 非事务方法，走【master】
    */
   @Test
   public void delete() {
@@ -60,11 +60,13 @@ public class MasterSlaveServiceTest {
     log.info("--------delete 方法的执行结果 {}", result == 10);
   }
 
-
+  /**
+   * 非事务方法，插入走【master】，查询走【slave0】
+   */
   @Test
   public void createAndRead() {
 
     int result = maserSlaveService.createAndRead();
-    log.info("--------createAndRead 方法的执行结果 {}", result == 10);
+    log.info("--------createAndRead 方法的执行结果 {}", result == 0);
   }
 }
