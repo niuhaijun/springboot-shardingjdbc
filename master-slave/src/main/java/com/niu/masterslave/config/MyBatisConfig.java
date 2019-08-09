@@ -36,15 +36,13 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
     bean.setDataSource(dataSource);
     bean.setTypeAliasesPackage("com.niu.masterslave.model");
 
-    //分页插件
+    //添加插件
+    Interceptor interceptor = new PageInterceptor();
     Properties properties = new Properties();
     properties.setProperty("reasonable", "false");
     properties.setProperty("supportMethodsArguments", "true");
     properties.setProperty("returnPageInfo", "check");
     properties.setProperty("params", "count=countSql");
-
-    //添加插件
-    Interceptor interceptor = new PageInterceptor();
     interceptor.setProperties(properties);
     bean.setPlugins(new Interceptor[]{interceptor});
 
