@@ -10,6 +10,7 @@
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="DEFAULT-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${logging_Root}/application-default.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -24,6 +25,7 @@
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="ERROR-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${logging_Root}/application-error.log</file>
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -37,6 +39,7 @@
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="PERF-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${logging_Root}/application-perf.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -47,18 +50,21 @@
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="STDOUT-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
     <param name="target" value="System.out"/>
     <encoder charset="UTF-8">
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="STDERR-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
     <param name="target" value="System.err"/>
     <encoder charset="UTF-8">
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="CACHE-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${logging_Root}/application-cache.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -69,6 +75,7 @@
       <pattern>%d [%t] %-5p %c{2} [%X{traceId}/%X{mac}] - [%m]%n</pattern>
     </encoder>
   </appender>
+
   <appender name="MQ-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${logging_Root}/application-msg.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
