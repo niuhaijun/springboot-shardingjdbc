@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <contextName>spring boot sharding-jdbc</contextName>
-  <property name="logging_Root" value="logs"/>
+  <property name="logging_Root" value="master-slave/logs"/>
   <!--  23:02:36,308 |-ERROR in ch.qos.logback.core.joran.spi.Interpreter@5:77 - no applicable action for [springProperty], current ElementPath  is [[configuration][springProperty]]-->
   <!--  <springProperty scope="context" name="logging_Root" source="loggingRoot"/>-->
 
