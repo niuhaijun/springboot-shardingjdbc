@@ -35,8 +35,8 @@ public class MasterSlaveServiceTest {
   @Test
   public void read() {
 
-    List<Order> records = maserSlaveService.read();
-    log.info("--------read 方法的执行结果 {}", records.size() == 10);
+    int result = maserSlaveService.read();
+    log.info("--------read 方法的执行结果 {}", result == 10);
   }
 
   /**

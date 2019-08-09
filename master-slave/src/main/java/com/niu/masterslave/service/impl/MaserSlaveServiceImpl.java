@@ -50,9 +50,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   }
 
   @Override
-  public List<Order> read() {
+  public int read() {
 
-    return orderMapper.selectByExample(new OrderExample());
+    return orderMapper.countByExample(new OrderExample());
   }
 
   @Override
