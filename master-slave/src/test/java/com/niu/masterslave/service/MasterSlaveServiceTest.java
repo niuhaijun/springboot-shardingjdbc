@@ -20,7 +20,7 @@ public class MasterSlaveServiceTest {
   private MaserSlaveService maserSlaveService;
 
   /**
-   * 非事务方法，create走主库
+   * 非事务方法，走主库
    */
   @Test
   public void create() {
@@ -29,6 +29,9 @@ public class MasterSlaveServiceTest {
     log.info("-------create 方法的执行结果 {}", result == 10);
   }
 
+  /**
+   * 非事务方法，走从库
+   */
   @Test
   public void read() {
 
@@ -36,26 +39,32 @@ public class MasterSlaveServiceTest {
     log.info("--------read 方法的执行结果 {}", records.size() == 10);
   }
 
+  /**
+   * 非事务方法，走主库
+   */
   @Test
   public void update() {
 
     int result = maserSlaveService.update();
-    log.info("--------update 方法的执行结果 {}", result == 1);
+    log.info("--------update 方法的执行结果 {}", result == 10);
   }
 
 
+  /**
+   * 非事务方法，走主库
+   */
   @Test
   public void delete() {
 
-    int result  = maserSlaveService.delete();
-    log.info("--------delete 方法的执行结果 {}", result == 1);
+    int result = maserSlaveService.delete();
+    log.info("--------delete 方法的执行结果 {}", result == 10);
   }
 
 
   @Test
   public void createAndRead() {
 
-    Integer count = maserSlaveService.createAndRead();
-    log.info("--------create and read success:" + count);
+    int result = maserSlaveService.createAndRead();
+    log.info("--------createAndRead 方法的执行结果 {}", result == 10);
   }
 }
