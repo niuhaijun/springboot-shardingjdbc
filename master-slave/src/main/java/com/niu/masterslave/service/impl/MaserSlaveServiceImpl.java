@@ -43,7 +43,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
       result += orderMapper.insert(record);
     }
 
-    log.info("create: {}", result);
+    log.info("C: {}", result);
     return result;
   }
 
@@ -52,7 +52,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += orderMapper.countByExample(new OrderExample());
 
-    log.info("read: {}", result);
+    log.info("R: {}", result);
     return orderMapper.countByExample(new OrderExample());
   }
 
@@ -67,7 +67,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     example.createCriteria().andOrderIdGreaterThan(0L);
     result += orderMapper.updateByExampleSelective(record, example);
 
-    log.info("update: {}", result);
+    log.info("U: {}", result);
     return result;
   }
 
@@ -76,7 +76,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += orderMapper.deleteByExample(new OrderExample());
 
-    log.info("delete: {}", result);
+    log.info("D: {}", result);
     return result;
   }
 
@@ -88,8 +88,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += c();
 
+    log.info("create {}", result);
     return result;
-
   }
 
   @Override
@@ -98,6 +98,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += c();
     result += r();
+
+    log.info("createAndRead {}", result);
     return result;
   }
 
@@ -107,6 +109,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += c();
     result += u();
+
+    log.info("createAndUpdate {}", result);
     return result;
 
   }
@@ -117,6 +121,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += c();
     result += d();
+
+    log.info("createAndDelete {}", result);
     return result;
   }
 
@@ -127,6 +133,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
+
+
+    log.info("read {}", result);
     return result;
 
   }
@@ -136,9 +145,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
-
     result += c();
 
+    log.info("readAndCreate {}", result);
     return result;
   }
 
@@ -147,9 +156,9 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
-
     result += u();
 
+    log.info("readAndUpdate {}", result);
     return result;
   }
 
@@ -158,9 +167,10 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += r();
-
     result += d();
 
+
+    log.info("readAndDelete {}", result);
     return result;
   }
 
@@ -172,6 +182,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += u();
 
+
+    log.info("update {}", result);
     return result;
   }
 
@@ -180,18 +192,21 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
     int result = 0;
     result += u();
-
     result += c();
+
+    log.info("updateAndCreate {}", result);
     return result;
   }
 
   @Override
   public int updateAndRead() {
+    int result = 0;
 
-    int u = u();
+    result += u();
+    result += r();
 
-    int r = r();
-    return u + r;
+    log.info("updateAndRead {}", result);
+    return result;
   }
 
   @Override
@@ -200,6 +215,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += u();
     result += d();
+
+    log.info("updateAndDelete {}", result);
     return result;
   }
 
@@ -208,7 +225,11 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   @Override
   public int delete() {
 
-    return d();
+    int result = 0;
+    result += d();
+
+    log.info("delete {}", result);
+    return result;
   }
 
   @Override
@@ -217,6 +238,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += d();
     result += r();
+
+    log.info("deleteAndRead {}", result);
     return result;
   }
 
@@ -226,6 +249,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += d();
     result += c();
+
+    log.info("deleteAndCreate {}", result);
     return result;
   }
 
@@ -235,6 +260,8 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     int result = 0;
     result += d();
     result += u();
+
+    log.info("deleteAndUpdate {}", result);
     return result;
   }
 
