@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: ms
+  application:
+    name: 读写分离
+
+server:
+  port: 8080
+
+
+
+
+

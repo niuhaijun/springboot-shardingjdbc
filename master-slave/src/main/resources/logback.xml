@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <contextName>spring boot sharding-jdbc</contextName>
-  <property name="logging_Root" value="logs"/>
+  <property name="logging_Root" value="master-slave/logs"/>
   <springProperty scope="context" name="logging_Root" source="loggingRoot"/>
 
   <appender name="DEFAULT-CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

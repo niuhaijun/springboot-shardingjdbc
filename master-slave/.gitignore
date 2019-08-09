@@ -2,4 +2,5 @@ target/
 .mvn
 .idea
 *.iml
+logs/
 

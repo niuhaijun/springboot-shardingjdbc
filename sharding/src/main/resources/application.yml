@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: sharding
+  application:
+    name: 分库分表
+
+server:
+  port: 8080
+
+
+
+
+
