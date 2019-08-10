@@ -23,7 +23,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   private OrderMapper orderMapper;
 
 
-  // ----------   CRUD --------- //
+  // ----------   CRUD   --------- //
   private int c() {
 
     int result = 0;
@@ -53,7 +53,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     result += orderMapper.countByExample(new OrderExample());
 
     log.info("R: {}", result);
-    return orderMapper.countByExample(new OrderExample());
+    return result;
   }
 
   private int u() {
@@ -81,7 +81,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   }
 
 
-  // ----------   创建以及组合方法 --------- //
+  // ----------   创建以及组合方法   --------- //
   @Override
   public int create() {
 
@@ -127,13 +127,12 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   }
 
 
-  // ----------   查询以及组合方法 --------- //
+  // ----------   查询以及组合方法   --------- //
   @Override
   public int read() {
 
     int result = 0;
     result += r();
-
 
     log.info("read {}", result);
     return result;
@@ -169,19 +168,17 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     result += r();
     result += d();
 
-
     log.info("readAndDelete {}", result);
     return result;
   }
 
 
-  // ----------   更新以及组合方法 --------- //
+  // ----------   更新以及组合方法   --------- //
   @Override
   public int update() {
 
     int result = 0;
     result += u();
-
 
     log.info("update {}", result);
     return result;
@@ -200,6 +197,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
 
   @Override
   public int updateAndRead() {
+
     int result = 0;
 
     result += u();
@@ -221,7 +219,7 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
   }
 
 
-  // ----------   删除以及组合方法 --------- //
+  // ----------   删除以及组合方法   --------- //
   @Override
   public int delete() {
 
