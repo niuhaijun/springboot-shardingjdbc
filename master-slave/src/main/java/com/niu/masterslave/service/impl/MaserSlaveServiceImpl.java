@@ -9,6 +9,9 @@ import java.util.Random;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author lou
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 @Slf4j
+@Transactional(isolation = Isolation.REPEATABLE_READ, rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
 public class MaserSlaveServiceImpl implements MaserSlaveService {
 
   @Autowired
