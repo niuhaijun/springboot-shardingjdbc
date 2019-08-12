@@ -1,8 +1,5 @@
 package com.niu.sharding.service;
 
-import com.niu.sharding.model.Order;
-import java.util.List;
-
 /**
  * 测试数据分片策略接口类
  *
@@ -12,16 +9,38 @@ import java.util.List;
  */
 public interface ShardingService {
 
-  void save();
+  /**
+   * 创建以及其他组合
+   */
+  int create();
+  int createAndRead();
+  int createAndUpdate();
+  int createAndDelete();
 
-  List<Order> list();
+
+  /**
+   * 查询以及其他组合
+   */
+  int read();
+  int readAndCreate();
+  int readAndUpdate();
+  int readAndDelete();
 
 
-  Integer insert(Order order);
+  /**
+   * 更新以及其他组合
+   */
+  int update();
+  int updateAndCreate();
+  int updateAndRead();
+  int updateAndDelete();
 
-  Integer update(Order order);
 
-  List<Order> select(Long small, Long big);
-
-  Integer delete(Order order);
+  /**
+   * 删除以及其他组合
+   */
+  int delete();
+  int deleteAndRead();
+  int deleteAndCreate();
+  int deleteAndUpdate();
 }

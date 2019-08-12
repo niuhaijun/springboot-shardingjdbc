@@ -267,5 +267,4 @@ public class MaserSlaveServiceImpl implements MaserSlaveService {
     return result;
   }
 
-
 }
