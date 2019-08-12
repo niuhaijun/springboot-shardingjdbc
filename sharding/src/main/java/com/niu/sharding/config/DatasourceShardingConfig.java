@@ -1,19 +1,31 @@
-package com.niu.sharding.config;
-
-import org.springframework.context.annotation.Configuration;
-
-/**
- * @author 牛海军
- * @Date 2019年1月14日 15:12
- * @Description 数据源配置类，使用JavaConfig的方式配置sharding数据源
- **/
-@Configuration
-public class DatasourceShardingConfig {
-
-  /**
-   * Sharding-JDBC的分库分表通过规则配置描述，
-   * 以下例子是根据user_id取模分库, 且根据order_id取模分表的两库两表的配置。
-   */
+//package com.niu.sharding.config;
+//
+//import com.alibaba.druid.pool.DruidDataSource;
+//import io.shardingsphere.api.config.rule.ShardingRuleConfiguration;
+//import io.shardingsphere.api.config.rule.TableRuleConfiguration;
+//import io.shardingsphere.api.config.strategy.InlineShardingStrategyConfiguration;
+//import io.shardingsphere.shardingjdbc.api.ShardingDataSourceFactory;
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.util.Properties;
+//import java.util.concurrent.ConcurrentHashMap;
+//import javax.sql.DataSource;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Primary;
+//
+///**
+// * @author 牛海军
+// * @Date 2019年1月14日 15:12
+// * @Description 数据源配置类，使用JavaConfig的方式配置sharding数据源
+// **/
+//@Configuration
+//public class DatasourceShardingConfig {
+//
+//  /**
+//   * Sharding-JDBC的分库分表通过规则配置描述，
+//   * 以下例子是根据user_id取模分库, 且根据order_id取模分表的两库两表的配置。
+//   */
 //  @Bean
 //  @Primary
 //  public DataSource dataSource() throws Exception {
@@ -62,5 +74,5 @@ public class DatasourceShardingConfig {
 //    return ShardingDataSourceFactory
 //        .createDataSource(dataSourceMap, shardingRuleConfig, new ConcurrentHashMap<>(), props);
 //  }
-
-}
+//
+//}

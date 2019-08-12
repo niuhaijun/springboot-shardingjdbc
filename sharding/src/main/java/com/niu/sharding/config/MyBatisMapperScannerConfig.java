@@ -19,7 +19,7 @@ public class MyBatisMapperScannerConfig {
 
     MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
     mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-    mapperScannerConfigurer.setBasePackage("com.niu.springbootshardingjdbc.mapper");
+    mapperScannerConfigurer.setBasePackage("com.niu.sharding.mapper");
     return mapperScannerConfigurer;
   }
 }
