@@ -1,6 +1,8 @@
 package com.niu.masterslave.config;
 
 import com.github.pagehelper.PageInterceptor;
+import io.shardingsphere.api.config.rule.MasterSlaveRuleConfiguration;
+import java.util.Arrays;
 import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.ibatis.plugin.Interceptor;

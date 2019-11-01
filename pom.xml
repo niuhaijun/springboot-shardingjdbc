@@ -52,18 +52,15 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
-      <version>${mybatis.version}</version>
     </dependency>
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid</artifactId>
-      <version>${druid.version}</version>
     </dependency>
 
 
@@ -87,14 +84,46 @@
     <dependency>
       <groupId>com.github.pagehelper</groupId>
       <artifactId>pagehelper</artifactId>
-      <version>5.1.4</version>
     </dependency>
     <dependency>
       <groupId>com.dangdang</groupId>
       <artifactId>sharding-jdbc-self-id-generator</artifactId>
-      <version>1.4.2</version>
     </dependency>
+
+
   </dependencies>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+        <version>5.1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>com.dangdang</groupId>
+        <artifactId>sharding-jdbc-self-id-generator</artifactId>
+        <version>1.4.2</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 
 </project>
