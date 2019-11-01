@@ -1,0 +1,9 @@
+com/niu/shardingtable/algorithm/UserTableShardingAlgorithm.class
+com/niu/shardingtable/utils/SnowFlake.class
+com/niu/shardingtable/model/UserExample.class
+com/niu/shardingtable/model/User.class
+com/niu/shardingtable/model/UserExample$Criterion.class
+com/niu/shardingtable/mapper/UserMapper.class
+com/niu/shardingtable/model/UserExample$GeneratedCriteria.class
+com/niu/shardingtable/model/UserExample$Criteria.class
+com/niu/shardingtable/ShardingTableApplication.class

@@ -1,0 +1,6 @@
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/utils/SnowFlake.java
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/mapper/UserMapper.java
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/model/UserExample.java
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/model/User.java
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/algorithm/UserTableShardingAlgorithm.java
+/Users/niuhaijun/projects/springboot-shardingjdbc/sharding-table/src/main/java/com/niu/shardingtable/ShardingTableApplication.java

@@ -19,8 +19,12 @@
     <mysql.version>8.0.11</mysql.version>
     <druid.version>1.1.9</druid.version>
     <mybatis.version>2.0.1</mybatis.version>
-    <sharding.version>3.1.0</sharding.version>
+    <sharding.io.version>3.1.0</sharding.io.version>
+    <sharding.sphere.version>4.0.0-RC1</sharding.sphere.version>
+    <pagehelper.version>5.1.4</pagehelper.version>
+    <id.generator.version>1.4.2</id.generator.version>
   </properties>
+
 
   <groupId>com.niu</groupId>
   <artifactId>springboot-shardingjdbc</artifactId>
@@ -35,16 +39,19 @@
   <modules>
     <module>master-slave</module>
     <module>sharding</module>
+    <module>sharding-table</module>
   </modules>
 
 
   <dependencies>
+    <!--    web依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
 
+    <!--    数据库依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -63,7 +70,7 @@
       <artifactId>druid</artifactId>
     </dependency>
 
-
+    <!--    测试依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -71,6 +78,7 @@
     </dependency>
 
 
+    <!--    效率工具-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -89,8 +97,6 @@
       <groupId>com.dangdang</groupId>
       <artifactId>sharding-jdbc-self-id-generator</artifactId>
     </dependency>
-
-
   </dependencies>
 
 
@@ -115,12 +121,12 @@
       <dependency>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper</artifactId>
-        <version>5.1.4</version>
+        <version>${pagehelper.version}</version>
       </dependency>
       <dependency>
         <groupId>com.dangdang</groupId>
         <artifactId>sharding-jdbc-self-id-generator</artifactId>
-        <version>1.4.2</version>
+        <version>${id.generator.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
