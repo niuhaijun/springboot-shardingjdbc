@@ -43,7 +43,7 @@
       <plugin>
         <groupId>org.mybatis.generator</groupId>
         <artifactId>mybatis-generator-maven-plugin</artifactId>
-        <version>1.3.2</version>
+        <version>${mbg.version}</version>
 
         <configuration>
           <configurationFile>mybatisGenerator.xml</configurationFile>
