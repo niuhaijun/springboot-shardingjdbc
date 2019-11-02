@@ -2,5 +2,4 @@
 .idea
 *.iml
 logs
-将删除 src/main/resources/static/
-将删除 src/main/resources/templates/
+taget/
