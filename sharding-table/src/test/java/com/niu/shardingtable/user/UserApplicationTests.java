@@ -63,33 +63,32 @@ public class UserApplicationTests {
 
     int id = 1;
     User user = userMapper.selectByPrimaryKey(id);
-    log.info(user.toString());
+    log.info("user = {}", user);
   }
 
   @Test
   public void update() {
 
     UserExample condition = new UserExample();
-    condition.createCriteria().andIdEqualTo(1);
+    condition.createCriteria()
+        .andIdEqualTo(1);
     User content = new User(null, "1->2");
-    int count = userMapper.updateByExampleSelective(content, condition);
-    log.info("" + count);
+    int num = userMapper.updateByExampleSelective(content, condition);
+    log.info("update num {}", num);
   }
 
   @Test
   public void delete() {
 
     int num = userMapper.deleteByPrimaryKey(1);
-    log.info(num + "");
+    log.info("delete num {}", num);
   }
 
   @Test
   public void deleteAll() {
 
     deleteUsers();
-
   }
-
 
   @Test
   public void forceRouteMaster() {
@@ -98,7 +97,7 @@ public class UserApplicationTests {
 
     int id = 1;
     User user = userMapper.selectByPrimaryKey(id);
-    log.info(user.toString());
+    log.info("{}", user);
   }
 
 }
