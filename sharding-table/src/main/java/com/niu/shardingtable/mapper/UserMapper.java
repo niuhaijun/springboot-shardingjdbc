@@ -31,7 +31,7 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    Long sumByExample(UserExample example);
+    int batchInsert(@Param("items") List<User> items);
 
-    void batchInsert(@Param("items") List<User> items);
+    Long sumByExample(UserExample example);
 }

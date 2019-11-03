@@ -2,21 +2,24 @@ package com.niu.shardingtable.model;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class Order implements Serializable {
     private Integer id;
 
     private String content;
+
+    private String uuid;
 
     private static final long serialVersionUID = 1L;
 
     private String updateSql;
 
-    public User(Integer id, String content) {
+    public Order(Integer id, String content, String uuid) {
         this.id = id;
         this.content = content;
+        this.uuid = uuid;
     }
 
-    public User() {
+    public Order() {
         super();
     }
 
@@ -36,6 +39,14 @@ public class User implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid == null ? null : uuid.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -44,6 +55,7 @@ public class User implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", content=").append(content);
+        sb.append(", uuid=").append(uuid);
         sb.append("]");
         return sb.toString();
     }

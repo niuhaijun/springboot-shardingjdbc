@@ -3,7 +3,7 @@ package com.niu.shardingtable.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserExample {
+public class OrderExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -16,7 +16,7 @@ public class UserExample {
 
     private String sumCol;
 
-    public UserExample() {
+    public OrderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -88,7 +88,7 @@ public class UserExample {
         this.limit = limit;
     }
 
-    public UserExample page(int offset, int limit) {
+    public OrderExample page(int offset, int limit) {
         this.offset = offset;
         this.limit = limit;
         return this;
@@ -102,13 +102,18 @@ public class UserExample {
         this.sumCol = sumCol;
     }
 
-    public UserExample sumId() {
+    public OrderExample sumId() {
         this.sumCol="id";
         return this;
     }
 
-    public UserExample sumContent() {
+    public OrderExample sumContent() {
         this.sumCol="content";
+        return this;
+    }
+
+    public OrderExample sumUuid() {
+        this.sumCol="uuid";
         return this;
     }
 
@@ -280,6 +285,76 @@ public class UserExample {
 
         public Criteria andContentNotBetween(String value1, String value2) {
             addCriterion("content not between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidIsNull() {
+            addCriterion("uuid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidIsNotNull() {
+            addCriterion("uuid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidEqualTo(String value) {
+            addCriterion("uuid =", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidNotEqualTo(String value) {
+            addCriterion("uuid <>", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidGreaterThan(String value) {
+            addCriterion("uuid >", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidGreaterThanOrEqualTo(String value) {
+            addCriterion("uuid >=", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidLessThan(String value) {
+            addCriterion("uuid <", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidLessThanOrEqualTo(String value) {
+            addCriterion("uuid <=", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidLike(String value) {
+            addCriterion("uuid like", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidNotLike(String value) {
+            addCriterion("uuid not like", value, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidIn(List<String> values) {
+            addCriterion("uuid in", values, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidNotIn(List<String> values) {
+            addCriterion("uuid not in", values, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidBetween(String value1, String value2) {
+            addCriterion("uuid between", value1, value2, "uuid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUuidNotBetween(String value1, String value2) {
+            addCriterion("uuid not between", value1, value2, "uuid");
             return (Criteria) this;
         }
 

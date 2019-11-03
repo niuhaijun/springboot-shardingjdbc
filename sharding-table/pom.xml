@@ -42,7 +42,7 @@
         <version>${mbg.version}</version>
 
         <configuration>
-          <configurationFile>mybatisGenerator.xml</configurationFile>
+          <configurationFile>src/main/resources/mbg/mbg.xml</configurationFile>
           <verbose>true</verbose>
           <overwrite>true</overwrite>
         </configuration>
@@ -61,7 +61,7 @@
           <dependency>
             <groupId>com.github.oceanc</groupId>
             <artifactId>mybatis3-generator-plugin</artifactId>
-            <version>0.4.0</version>
+            <version>${mbgp.version}</version>
           </dependency>
           <dependency>
             <groupId>mysql</groupId>
@@ -73,95 +73,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
-
-
-
-
-
-
-<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
-<!--  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
-<!--  <modelVersion>4.0.0</modelVersion>-->
-
-<!--  <groupId>com.niu</groupId>-->
-<!--  <artifactId>sharding-table</artifactId>-->
-<!--  <version>0.0.1-SNAPSHOT</version>-->
-<!--  <packaging>jar</packaging>-->
-
-<!--  <parent>-->
-<!--    <groupId>org.springframework.boot</groupId>-->
-<!--    <artifactId>spring-boot-starter-parent</artifactId>-->
-<!--&lt;!&ndash;    <version>2.0.6.RELEASE</version>&ndash;&gt;-->
-<!--    <version>2.1.1.RELEASE</version>-->
-<!--    <relativePath/>-->
-<!--  </parent>-->
-
-
-<!--  <properties>-->
-<!--    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-<!--  </properties>-->
-
-
-<!--  <dependencies>-->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-web</artifactId>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>org.mybatis.spring.boot</groupId>-->
-<!--      <artifactId>mybatis-spring-boot-starter</artifactId>-->
-<!--      <version>2.0.1</version>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>mysql</groupId>-->
-<!--      <artifactId>mysql-connector-java</artifactId>-->
-<!--      <version>8.0.13</version>-->
-<!--    </dependency>-->
-
-<!--&lt;!&ndash;    <dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;      <groupId>com.alibaba</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;      <artifactId>druid-spring-boot-starter</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;      <version>1.1.16</version>&ndash;&gt;-->
-<!--&lt;!&ndash;    </dependency>&ndash;&gt;-->
-
-<!--    <dependency>-->
-<!--      <groupId>com.alibaba</groupId>-->
-<!--      <artifactId>druid</artifactId>-->
-<!--      <version>1.1.16</version>-->
-<!--    </dependency>-->
-
-
-
-<!--    <dependency>-->
-<!--      <groupId>org.apache.shardingsphere</groupId>-->
-<!--      <artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
-<!--      <version>4.0.0-RC1</version>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>com.github.pagehelper</groupId>-->
-<!--      <artifactId>pagehelper</artifactId>-->
-<!--      <version>5.1.4</version>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>org.springframework.boot</groupId>-->
-<!--      <artifactId>spring-boot-starter-test</artifactId>-->
-<!--    </dependency>-->
-<!--  </dependencies>-->
-
-
-<!--  <build>-->
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
-<!--  </build>-->
-<!--</project>-->
