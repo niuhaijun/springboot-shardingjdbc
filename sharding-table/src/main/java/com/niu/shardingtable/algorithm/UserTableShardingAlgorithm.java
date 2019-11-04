@@ -20,7 +20,7 @@ public class UserTableShardingAlgorithm implements PreciseShardingAlgorithm<Long
       throw new RuntimeException("error");
     }
 
-    String yearAndMonth = SnowFlake.getYearAndMonth(shardingValue.getValue());
+    String yearAndMonth = SnowFlake.getYearAndMonthFromId(shardingValue.getValue());
     String tableName = availableTargetNames.stream().filter(t -> t.endsWith(yearAndMonth))
         .findFirst().orElse(null);
 

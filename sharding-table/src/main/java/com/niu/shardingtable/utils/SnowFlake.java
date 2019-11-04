@@ -1,10 +1,16 @@
 package com.niu.shardingtable.utils;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @Author: niuhaijun
  * @Date: 2019-11-01 16:44
  * @Version 1.0
  */
+@Slf4j
 public class SnowFlake {
 
   /**
@@ -40,23 +46,42 @@ public class SnowFlake {
   /** 时间戳较数据中心的偏移量 */
   private final static long TIMESTMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT;
 
-  private static long datacenterId = 0L;  //数据中心
-  private static long machineId;    //机器标识
-  private static long sequence = 0L; //序列号
-  private static long lastStmp = -1L;//上一次时间戳
+  private long datacenterId;   //数据中心
+  private long machineId;      //机器标识
+  private long sequence = 0L;  //序列号
+  private long lastStmp = -1L; //上一次时间戳
 
-  /** 此处无参构造私有，同时没有给出有参构造，在于避免以下两点问题：
-   1、私有化避免了通过new的方式进行调用，主要是解决了在for循环中通过new的方式调用产生的id不一定唯一问题问题，因为用于			 记录上一次时间戳的lastStmp永远无法得到比对；
-   2、没有给出有参构造在第一点的基础上考虑了一套分布式系统产生的唯一序列号应该是基于相同的参数
+  /**
+   * 此处无参构造私有，同时没有给出有参构造，在于避免以下两点问题：
+   * 1、私有化避免了通过new的方式进行调用，主要是解决了在for循环中通过new的方式调用产生的id不一定唯一问题问题，因为用于
+   * 记录上一次时间戳的lastStmp永远无法得到比对；
+   *
+   * 2、没有给出有参构造在第一点的基础上考虑了一套分布式系统产生的唯一序列号应该是基于相同的参数
    */
   private SnowFlake() {
 
   }
 
+  public SnowFlake(long datacenterId, long machineId) {
+
+    if (datacenterId > MAX_DATACENTER_NUM || datacenterId < 0) {
+      throw new IllegalArgumentException(
+          "datacenterId can't be greater than MAX_DATACENTER_NUM or less than 0");
+    }
+
+    if (machineId > MAX_MACHINE_NUM || machineId < 0) {
+      throw new IllegalArgumentException(
+          "machineId can't be greater than MAX_MACHINE_NUM or less than 0");
+    }
+
+    this.datacenterId = datacenterId;
+    this.machineId = machineId;
+  }
+
   /**
    * 产生下一个ID
    */
-  public static synchronized long nextId() {
+  public synchronized long nextId() {
     /** 获取当前时间戳 */
     long currStmp = getNewstmp();
 
@@ -64,6 +89,7 @@ public class SnowFlake {
     if (currStmp < lastStmp) {
       throw new RuntimeException("Clock moved backwards.  Refusing to generate id");
     }
+
     /** 相同毫秒内 */
     if (currStmp == lastStmp) {
       //相同毫秒内，序列号自增
@@ -79,16 +105,16 @@ public class SnowFlake {
       sequence = 0L;
     }
 
-    /** 当前时间戳存档记录，用于下次产生id时对比是否为相同时间戳 */
+    /* 当前时间戳存档记录，用于下次产生id时对比是否为相同时间戳 */
     lastStmp = currStmp;
 
     return (currStmp - START_STMP) << TIMESTMP_LEFT //时间戳部分
-        | datacenterId << DATACENTER_LEFT      //数据中心部分
-        | machineId << MACHINE_LEFT            //机器标识部分
-        | sequence;                            //序列号部分
+        | datacenterId << DATACENTER_LEFT           //数据中心部分
+        | machineId << MACHINE_LEFT                 //机器标识部分
+        | sequence;                                 //序列号部分
   }
 
-  private static long getNextMill() {
+  private long getNextMill() {
 
     long mill = getNewstmp();
     while (mill <= lastStmp) {
@@ -97,29 +123,49 @@ public class SnowFlake {
     return mill;
   }
 
-  private static long getNewstmp() {
+  private long getNewstmp() {
 
     return System.currentTimeMillis();
   }
 
-  public static String getYearAndMonth(long snowflakeId) {
 
-    return "";
+  /* 以下处理ID的工具方法 */
+  public static long getTimestampFromId(long id) {
+
+    return (id >> TIMESTMP_LEFT) + START_STMP;
   }
 
-  public static String getYear() {
 
-    return "";
+  public static LocalDateTime getLocalDateTimeFromId(long id) {
+
+    long timestamp = getTimestampFromId(id);
+    Instant instant = Instant.ofEpochMilli(timestamp);
+    return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
   }
 
-  public static String getMonth() {
+  public static String getYearAndMonthFromId(long id) {
 
-    return "";
+    String ym = "";
+
+    LocalDateTime ldt = getLocalDateTimeFromId(id);
+    ym += ldt.getYear();
+
+    int mv = ldt.getMonthValue();
+    ym += (mv >= 10 ? mv : "0" + mv);
+
+    return ym;
   }
 
-  public static long getTimestamp() {
+  public static String getYearFromId(int id) {
 
-    return 0L;
+    LocalDateTime ldt = getLocalDateTimeFromId(id);
+    return "" + ldt.getYear();
+  }
+
+  public static String getMonthFromId(int id) {
+
+    LocalDateTime ldt = getLocalDateTimeFromId(id);
+    return "" + ldt.getMonthValue();
   }
 
 }
