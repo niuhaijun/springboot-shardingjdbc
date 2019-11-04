@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * 单表CRUD 无事务
+ *
+ *
+ *
  * @Author: niuhaijun
  * @Date: 2019-11-03 21:19
  * @Version 1.0
