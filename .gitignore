@@ -1,5 +1,5 @@
-.mvn/
+target/
+.mvn
 .idea
 *.iml
-logs
-taget/
+logs/
