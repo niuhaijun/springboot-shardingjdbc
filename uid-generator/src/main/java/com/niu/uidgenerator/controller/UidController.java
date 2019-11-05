@@ -1,7 +1,11 @@
 package com.niu.uidgenerator.controller;
 
 import com.niu.uidgenerator.UidGenerator;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,15 +16,37 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("uid")
+@Slf4j
 public class UidController {
 
   @Resource(name = "cachedUidGenerator")
   private UidGenerator uidGenerator;
 
-  @RequestMapping("get")
+  @GetMapping("get")
   public Long get() {
 
     return uidGenerator.getUID();
   }
+
+  @GetMapping("parse")
+  public String parse(Long uid) {
+
+    return uidGenerator.parseUID(uid);
+  }
+
+  @GetMapping("test")
+  public String test(int n) {
+
+    List<Long> uidList = new ArrayList<>(n);
+
+    for (int i = 0; i < n; i++) {
+      uidList.add(uidGenerator.getUID());
+    }
+
+    uidList.parallelStream().map(uidGenerator::parseUID).forEach(log::info);
+
+    return "success";
+  }
+
 
 }
