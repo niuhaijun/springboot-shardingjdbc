@@ -15,6 +15,7 @@
  */
 package com.niu.uidgenerator.worker.entity;
 
+import com.niu.uidgenerator.worker.WorkerNodeType;
 import java.util.Date;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
