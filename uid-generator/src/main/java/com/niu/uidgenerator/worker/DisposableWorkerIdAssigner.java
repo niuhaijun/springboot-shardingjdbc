@@ -67,7 +67,6 @@ public class DisposableWorkerIdAssigner implements WorkerIdAssigner {
       workerNodeEntity.setType(WorkerNodeType.CONTAINER.value());
       workerNodeEntity.setHostName(DockerUtils.getDockerHost());
       workerNodeEntity.setPort(DockerUtils.getDockerPort());
-
     }
     else {
       workerNodeEntity.setType(WorkerNodeType.ACTUAL.value());
