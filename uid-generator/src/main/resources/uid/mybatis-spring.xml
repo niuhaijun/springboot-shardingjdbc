@@ -76,7 +76,8 @@
 
   <bean id="batchSqlSession" class="org.mybatis.spring.SqlSessionTemplate">
     <constructor-arg index="0" ref="sqlSessionFactory"/>
-    <constructor-arg index="1" value="BATCH"/>
+    <!--    BATCH 在事务内无法获取自增ID, 修改为SIMPLE 即可-->
+    <constructor-arg index="1" value="SIMPLE"/>
   </bean>
 
 
