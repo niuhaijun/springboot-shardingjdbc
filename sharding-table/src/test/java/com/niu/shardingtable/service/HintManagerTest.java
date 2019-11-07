@@ -1,6 +1,6 @@
 package com.niu.shardingtable.service;
 
-import com.niu.shardingtable.ShardingTableApplication;
+import com.niu.ShardingTableApplication;
 import com.niu.shardingtable.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.api.hint.HintManager;

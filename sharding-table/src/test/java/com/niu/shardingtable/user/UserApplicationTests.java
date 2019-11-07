@@ -1,6 +1,6 @@
 package com.niu.shardingtable.user;
 
-import com.niu.shardingtable.ShardingTableApplication;
+import com.niu.ShardingTableApplication;
 import com.niu.shardingtable.mapper.UserMapper;
 import com.niu.shardingtable.model.User;
 import com.niu.shardingtable.model.UserExample;

@@ -1,17 +1,14 @@
-package com.niu.sharding;
+package com.niu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * 分库分表
- */
 @SpringBootApplication
-public class ShardingApplication {
+public class UidConsumerApplication {
 
   public static void main(String[] args) {
 
-    SpringApplication.run(ShardingApplication.class, args);
+    SpringApplication.run(UidConsumerApplication.class, args);
   }
 
 }

@@ -1,6 +1,6 @@
 package com.niu.masterslave.service;
 
-import com.niu.masterslave.MasterSlaveApplication;
+import com.niu.MasterSlaveApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

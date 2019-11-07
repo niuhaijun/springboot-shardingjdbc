@@ -1,6 +1,6 @@
 package com.niu.shardingtable.service;
 
-import com.niu.shardingtable.ShardingTableApplication;
+import com.niu.ShardingTableApplication;
 import com.niu.shardingtable.model.User;
 import java.util.ArrayList;
 import java.util.List;

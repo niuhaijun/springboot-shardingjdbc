@@ -1,6 +1,6 @@
 package com.niu.sharding.service;
 
-import com.niu.sharding.ShardingApplication;
+import com.niu.ShardingApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
