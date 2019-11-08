@@ -17,7 +17,7 @@
     parameterType="com.niu.uidgenerator.worker.entity.WorkerNodeEntity">
     INSERT INTO WORKER_NODE
     (HOST_NAME,
-     PORT,
+     `PORT`,
      TYPE,
      LAUNCH_DATE,
      MODIFIED,

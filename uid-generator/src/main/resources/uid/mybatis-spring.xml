@@ -66,8 +66,7 @@
     <property name="testOnBorrow" value="${datasource.testOnBorrow}"/>
     <property name="testOnReturn" value="${datasource.testOnReturn}"/>
     <property name="validationQuery" value="${datasource.validationQuery}"/>
-    <property name="timeBetweenEvictionRunsMillis"
-      value="${datasource.timeBetweenEvictionRunsMillis}"/>
+    <property name="timeBetweenEvictionRunsMillis" value="${datasource.timeBetweenEvictionRunsMillis}"/>
     <property name="minEvictableIdleTimeMillis" value="${datasource.minEvictableIdleTimeMillis}"/>
     <property name="logAbandoned" value="${datasource.logAbandoned}"/>
     <property name="removeAbandoned" value="${datasource.removeAbandoned}"/>
