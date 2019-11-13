@@ -27,6 +27,12 @@
       <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
       <version>${sharding.sphere.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.niu</groupId>
+      <artifactId>uid-generator</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>

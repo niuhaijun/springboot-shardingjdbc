@@ -1,4 +1,4 @@
-package com.niu.uidconsumer.controller;
+package com.niu.shardingtable.controller;
 
 import com.niu.uidgenerator.service.UidGenService;
 import lombok.extern.slf4j.Slf4j;
@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author: niuhaijun
- * @date: 2019-11-07 12:51
+ * @date: 2019-11-09 00:14
  * @version: 1.0
  * @description: xxx
  */
 @RestController
-@RequestMapping("uid-consumer")
+@RequestMapping("sharding-table")
 @Slf4j
-public class UidConsumerController {
+public class UidShardingTableController {
 
-  @Autowired(required = false)
+  @Autowired
   private UidGenService service;
 
   @RequestMapping("uid/get")
